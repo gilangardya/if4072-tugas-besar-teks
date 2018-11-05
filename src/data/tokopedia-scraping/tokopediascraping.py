@@ -16,7 +16,7 @@ if(len(sys.argv) != 3):
     exit(0)
 
 driver = webdriver.Chrome()
-driver.implicitly_wait(5)
+driver.implicitly_wait(0)
 
 for x in range(int(sys.argv[1]), int(sys.argv[2])):
     try:
