@@ -32,6 +32,8 @@ for x in range(int(sys.argv[1]), int(sys.argv[2])):
                     driver.find_element_by_xpath("//*[@id='review-tab']").click()
                     soup_level2=BeautifulSoup(driver.page_source, 'html.parser')
                     title = soup_level2.find("h1", {"class":"rvm-product-title"}).contents[0]
+                    if (str(title) == '\r\n'):
+                    	title = soup_level2.find("span", {"itemprop":"name"}).contents[0]
                     price = soup_level2.find("span", {"itemprop":"price"})['content']
                     condition = soup_level2.find("link", {"itemprop":"itemCondition"})['href']
                     for i in range (2,7):
