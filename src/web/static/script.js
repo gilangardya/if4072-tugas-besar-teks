@@ -7,7 +7,7 @@ function validateForm() {
 }
 
 $('document').ready(function() {
-    $('#result').css('display', 'none');
+    // $('#result').css('display', 'none');
 
     $('#button-process').click(function() {
         if (!validateForm()) {
@@ -27,7 +27,13 @@ $('document').ready(function() {
             contentType: false,  // tell jQuery not to set contentType
             success : function(data) {
                 $('#result').css('display', 'block');
-                $("#result-text").text(data.rating);
+                $('.rate-off').css('display', 'inline-block');
+                $('.rate-on').css('display', 'none');
+                for (var i=1; i<=data.rating; i++) {
+                    console.log('masuk');
+                    $('#rate'+ i + '-off').css('display', 'none');
+                    $('#rate'+ i + '-on').css('display', 'inline-block');
+                }
             },
             error: function() {
                 alert ('Oops, Something went wrong');
