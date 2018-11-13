@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rating Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../static/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <body class="has-text-centered">
+    <section class="section">
+      <div class="container">
+        <h1 class="title">
+          Rating Prediction
+        </h1>
+        <p class="subtitle">
+          Predict product <strong>rating</strong> from your <strong>review</strong>!
+        </p>
+      </div>
+      <div class="container" id="content">
+        <div class="field">
+          <div class="control">
+            <input class="input is-primary is-rounded" type="text" placeholder="Siapakah namamu" id="nama">
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+              <input class="input is-primary is-rounded" type="text" placeholder="Masukkan ulasanmu" id="ulasan">
+          </div>
+        </div>
+        <a id="button-process" class="button is-primary is-rounded">Prediksi Rating!</a>
+      </div>
+
+      <br><br>
+      <div class="container" id="result">
+        <p class="subtitle">
+          Rating Produk:
+        </p>
+        <p id="result-text"></p>
+      </div>
+    </section>
+  </body>
+  <script src="../static/script.js"></script>
+</html>
