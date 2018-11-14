@@ -9,6 +9,38 @@ function validateForm() {
 $('document').ready(function() {
     // $('#result').css('display', 'none');
 
+    $('#nama').change(function() {
+
+        // alert('masuk');
+        if ($('#nama').val() !== '') {
+            var formData = new FormData();
+            formData.append('nama', $('#nama').val());
+            
+            $.ajax({
+                url : '/predict_gender',
+                type : 'POST',
+                data : formData,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false,  // tell jQuery not to set contentType
+                success : function(data) {
+                    if (data.gender ==  'male') {
+                        $('#ulasan').prop('placeholder', 'Masukkan ulasanmu bro');
+                    } else if (data.gender ==  'female') {
+                        $('#ulasan').prop('placeholder', 'Masukkan ulasanmu sis');
+                    }
+                },
+                error: function() {
+                    alert ('Oops, Something went wrong');
+                },
+                complete: function() {
+                    
+                }
+            });
+        } else {
+            $('#ulasan').prop('placeholder', 'Masukkan ulasanmu');
+        }
+    });
+
     $('#button-process').click(function() {
         if (!validateForm()) {
             return;
